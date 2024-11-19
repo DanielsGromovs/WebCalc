@@ -28,6 +28,10 @@ header h1 {
     color: #4CAF50;
 }
 
+header p {
+    color: rgb(187, 187, 187);
+}
+
 
 .calculator {
     background-color: white;
