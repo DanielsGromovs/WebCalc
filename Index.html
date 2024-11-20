@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,48 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <Header>
-        <H1>Super Calc</H1>
+    <header>
+        <h1>Super Calc</h1>
         <p>Calc is short for calculator</p>
-    </Header>
+    </header>
     <main>
-        <div class="calculator">
-            <div id="screen">
-                <input type="text" id="output" readonly>
+        <div class="main-container">
+            <div class="calculator">
+                <div id="screen">
+                    <input type="text" id="output" readonly>
+                </div>
+                <div class="Keypad">
+                    <button class="operator" onclick="Clear()">C</button>
+                    <button class="operator" onclick="Back()">←</button>
+                    <button class="operator" onclick="EqAdd('√')">√</button>
+                    <button class="operator" onclick="EqAdd('/')">/</button>
+
+                    <button onclick="EqAdd('7')">7</button>
+                    <button onclick="EqAdd('8')">8</button>
+                    <button onclick="EqAdd('9')">9</button>
+                    <button class="operator" onclick="EqAdd('*')">x</button>
+
+                    <button onclick="EqAdd('4')">4</button>
+                    <button onclick="EqAdd('5')">5</button>
+                    <button onclick="EqAdd('6')">6</button>
+                    <button class="operator" onclick="EqAdd('-')">-</button>
+
+                    <button onclick="EqAdd('1')">1</button>
+                    <button onclick="EqAdd('2')">2</button>
+                    <button onclick="EqAdd('3')">3</button>
+                    <button class="operator" onclick="EqAdd('+')">+</button>
+
+                    <button onclick="EqAdd('.')">.</button>
+                    <button onclick="EqAdd('0')">0</button>
+                    <button onclick="EqAdd('^')">^</button>
+                    <button id="equals" onclick="Solve()">=</button>
+                </div>
             </div>
-            <div class="Keypad">
-                <button class="operator" onclick="Clear()">C</button>
-                <button class="operator" onclick="Back()">←</button>
-                <button class="operator" onclick="EqAdd('√')">√</button>
-                <button class="operator" onclick="EqAdd('/')">/</button>
-
-                <button onclick="EqAdd('7')">7</button>
-                <button onclick="EqAdd('8')">8</button>
-                <button onclick="EqAdd('9')">9</button>
-                <button class="operator" onclick="EqAdd('*')">x</button>
-
-                <button onclick="EqAdd('4')">4</button>
-                <button onclick="EqAdd('5')">5</button>
-                <button onclick="EqAdd('6')">6</button>
-                <button class="operator" onclick="EqAdd('-')">-</button>
-
-                <button onclick="EqAdd('1')">1</button>
-                <button onclick="EqAdd('2')">2</button>
-                <button onclick="EqAdd('3')">3</button>
-                <button class="operator" onclick="EqAdd('+')">+</button>
-
-                <button onclick="EqAdd('.')">.</button>
-                <button onclick="EqAdd('0')">0</button>
-                <button onclick="EqAdd('^')">^</button>
-                <button id="equals" onclick="Solve()">=</button>
-
-
+            <div id="history-container">
+                <h2>History</h2>
+                <button onclick="clearHistory()">Clear History</button>
+                <ul id="history-list"></ul>
             </div>
         </div>
     </main>
     <footer>
-        made by Daniels Gromovs
+        Made by Daniels Gromovs
     </footer>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
