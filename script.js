@@ -2,10 +2,21 @@ const output = document.getElementById("output");
 const historyList = document.getElementById("history-list");
 let history = [];
 
+const keyMap = {
+    "Backspace": "back", "Delete": "clear", "c": "clear", "C": "clear", 
+    "Enter": "=", "=": "="
+};
+
+
 function EqAdd(val) {
-    output.value += val;
-    output.scrollLeft = output.scrollWidth;
+    const operators = "+-*/.^";
+    const lastChar = output.value.charAt(output.value.length - 1);
+    if (!(operators.includes(lastChar) && operators.includes(val))) {
+        output.value += val;
+        output.scrollLeft = output.scrollWidth;
+    }
 }
+
 
 function Clear() {
     output.value = '';
@@ -43,3 +54,20 @@ function clearHistory() {
     history = [];
     updateHistory();
 }
+
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+
+    if (!isNaN(key) || "+-*/.^".includes(key)) {
+        EqAdd(key); // Directly add numeric and operator keys
+    } else if (key in keyMap) {
+        const action = keyMap[key];
+        if (action === "clear") {
+            Clear();
+        } else if (action === "back") {
+            Back();
+        } else if (action === "=") {
+            Solve();
+        }
+    }
+});
